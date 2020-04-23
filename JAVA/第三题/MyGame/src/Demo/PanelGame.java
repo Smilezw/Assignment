@@ -1,4 +1,4 @@
-package demo;
+package Demo;
 
 import java.awt.Color;
 import java.awt.Dimension;
@@ -16,8 +16,6 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JCheckBox;
 import javax.swing.Timer;
-
-import socket.Client;
 
 import javax.swing.JOptionPane;
 
@@ -115,16 +113,37 @@ public class PanelGame{
 
     };
 
+    public Timer timer = new Timer(1000, new timerListener());
+
+    /**
+     * 计时器所用的事件监听器
+     */
+    class timerListener implements ActionListener{
+        public void actionPerformed(ActionEvent e){
+            // 如果游戏已结束
+            if(isGameOver(type, state, x, y)){
+                JOptionPane.showMessageDialog(f, "GAME OVER!");
+                timer.stop();
+                f.setVisible(false);
+                return;
+            }
+
+            if(check(type, state , x, y+1) ){
+                y = y +1;
+            }
+            else{
+                add(type, state, x, y);
+                delLine();
+                newShape();
+            }
+            paintArea();
+        }
+    }
+
     /**
      * 初始化界面
      */
-    
-   
-    String name = null;
-    Timer timer = new Timer(1000, new timerListener());
-    
-    public void init(String Sname) {
-    	name = Sname;
+    public void init() {
         drawArea.setPreferredSize(new Dimension(AREA_WIDTH, AREA_HEIGHT));
         f.add(drawArea);
         JCheckBox gridCB = new JCheckBox("显示网格",true);
@@ -134,7 +153,6 @@ public class PanelGame{
         // paintArea();
         // 加键盘监听器
         f.addKeyListener(new KeyAdapter(){
-
             public void keyPressed(KeyEvent e){
                 switch (e.getKeyCode()) {
                     case KeyEvent.VK_UP:
@@ -167,15 +185,12 @@ public class PanelGame{
         f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         f.setAlwaysOnTop(true);
         f.setVisible(true);
-        
     }
 
     /**
      * 绘图
      */
     private void paintArea(){
-    	System.out.println("paint");
-    	
         //  默认黑色，填充白色
         g.setColor(Color.white);
         g.fillRect(0, 0, AREA_WIDTH, AREA_HEIGHT);
@@ -198,15 +213,15 @@ public class PanelGame{
                 g.drawLine(LEFT_MARGIN, UP_MARGIN+LEN*i, LEFT_MARGIN+COL*LEN, UP_MARGIN+LEN*i);
             }
         }
-        
-        // 右上角显示下一个shape        
+
+        // 右上角显示下一个shape
         @SuppressWarnings("unused")
-		int offset2 = 3;// 边框粗细
+        int offset2 = 3;// 边框粗细
         @SuppressWarnings("unused")
-		int col = 4;// 右上角方框的列数
+        int col = 4;// 右上角方框的列数
         @SuppressWarnings("unused")
-		int row = 4;// 行数
-        
+        int row = 4;// 行数
+
         g.setColor(Color.gray);
         g.setFont(new Font("Microsoft YaHei Mono", Font.BOLD, 20));
         g.drawString("下一个：", wordX, LEN*2);
@@ -261,11 +276,11 @@ public class PanelGame{
      */
     private class MyCanvas extends JPanel{
         /**
-		 * 
-		 */
-		private static final long serialVersionUID = 1L;
+         *
+         */
+        private static final long serialVersionUID = 1L;
 
-		public void paint(Graphics g){
+        public void paint(Graphics g){
             g.drawImage(image, 0, 0, null);
         }
     }
@@ -295,7 +310,6 @@ public class PanelGame{
      * 新建方块
      */
     private void newShape(){
-    	System.out.println("newShape");
         Random rand = new Random();
         if(newBegin){
             type = rand.nextInt(7);
@@ -311,14 +325,13 @@ public class PanelGame{
         x = 3;
         y = 0;
         paintArea();
-
     }
 
     /**
      * 消行
      */
     private void delLine(){
-        boolean flag = true;
+        boolean flag;
         int addScore = 0;
         for(int j = 0; j < ROW; j++){
             flag = true;
@@ -338,36 +351,6 @@ public class PanelGame{
             }
         }
         score += addScore*addScore/COL;
-    }
-
-    /**
-     * 计时器所用的事件监听器
-     */
-    private class timerListener implements ActionListener{
-        public void actionPerformed(ActionEvent e){
-        	// 如果游戏已结束
-            if(isGameOver(type, state, x, y)){
-                JOptionPane.showMessageDialog(f, "GAME OVER!");
-                timer.stop();
-                
-                //更新
-                Client client = new Client();
-        		String s = Integer.toString(score);
-        		client.upData(new player(name, s));
-        		System.exit(0); //退出
-                return;
-            }
-        	
-            if(check(type, state , x, y+1) ){
-                y = y +1;
-            }
-            else{
-                add(type, state, x, y);
-                delLine();
-                newShape();
-            }
-            paintArea();
-        }
     }
 
     /**
@@ -391,7 +374,7 @@ public class PanelGame{
         int tmpState = state;
         state = (state + 1)%4;
         if (!check(type,state, x, y )) {
-            state = tmpState; //不能转就什么都不做           
+            state = tmpState; //不能转就什么都不做
         }
         paintArea();
     }
