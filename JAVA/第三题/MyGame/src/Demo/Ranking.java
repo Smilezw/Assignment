@@ -10,10 +10,13 @@ import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 
+/*
+*   ≈≈––∞Òª≠≤º
+ */
+
+
 public class Ranking{
-    /**
-     *
-     */
+
     private static ArrayList<player> arr = new ArrayList<>();
     private static BufferedImage image = new BufferedImage(400, 800, BufferedImage.TYPE_INT_RGB);
     private static Graphics g = image.createGraphics();

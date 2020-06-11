@@ -8,6 +8,10 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+/*
+* 主界面  用户开始的模块
+ */
+
 public class MainFrame {
     private static JFrame f = new JFrame("主界面");
     private static Client client = new Client();

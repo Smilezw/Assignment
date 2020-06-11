@@ -9,6 +9,10 @@ import java.io.PrintWriter;
 import java.net.*;
 import java.util.ArrayList;
 
+        /*
+        *  向服务端上传  下载数据
+         */
+
 public class Client {
 
     private static Socket socket = null;
@@ -46,7 +50,6 @@ public class Client {
             }
         }
     }
-
     public ArrayList<player> getData() {                 //请求数据
         ArrayList<player> t = new ArrayList<player>();
         try {
