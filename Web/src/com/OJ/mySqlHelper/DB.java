@@ -52,7 +52,6 @@ public class DB {
     }
 
     public void Run(String sql, Object... param)  {
-        System.out.println("update");
         Open();
         try{
             ps = conn.prepareStatement(sql);

@@ -1,0 +1,143 @@
+html {
+    font-size: 14px;
+    width: 100%;
+}
+body{
+    padding: 0;
+    min-width:1200px;
+    min-height:100%;
+    position:relative;
+    font-size:14px;
+    font-family: Full-Width-Quoration-Marks,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Helvetica,"PingFang SC","Hiragino Sans GB","Microsoft YaHei",SimSun,FontAwesome,sans-serif;
+}
+nav a{ font-family: Full-Width-Quoration-Marks,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Helvetica,"PingFang SC","Hiragino Sans GB","Microsoft YaHei",SimSun,FontAwesome,sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+    float: left;
+    margin:0 auto;
+}
+.dropdown-toggle::after{display: none;}
+a{
+    text-decoration: none!important;
+}
+div img{
+    transition: all 0.6s;
+}
+/*
+div img:hover{
+     transform: scale(1.05);
+}
+*/
+.btn:focus,.btn:active:focus,.btn.active:focus,.btn.focus,.btn:active.focus,.btn.active.focus {
+    outline: none;
+    border-color: transparent;
+    box-shadow:none;
+    /*background:#77bc1f;*/
+    color:#fff;
+}
+
+.shadow-sm{box-shadow: 0 .125rem .25rem rgba(0,0,0,.075)!important;}
+
+.nav-right nav a{
+    font-size: 16px;
+    color: #555;
+    display: flex;
+    align-items: center;
+    justify-content:center;
+    margin-right: 10px;
+    height: 50px;
+    box-sizing: border-box;
+    text-decoration: none;
+}
+.nav-right nav a:hover{
+    color: #1E90FF;
+}
+.nav-right nav a.active{
+    min-width: 80px;
+    height: auto;
+    border-bottom: 2px solid #1E90FF;
+    color: #1E90FF;
+}
+.nav-left img{
+    position: absolute;
+    margin-left:0;
+    width: 90px;
+    right:0;
+    padding-top:2px;
+}
+.nav-body{
+    height: 50px!important;
+}
+
+ body{
+     font-size:16px;
+ }
+p{
+    font-size: 14px;
+    font-weight: 500;
+}
+pre{
+    font-family: Courier,'Courier New',monospace;
+    font-size: 14px;
+    font-weight: 500;
+    padding: 10px 0 10px 10px;
+    margin: .1em 0;
+    background:#fafafa;
+    border-left:2px solid #3498db;
+}
+article{
+    margin-left: 0.75em;
+}
+h5{
+    padding: 0.6em;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+h6{
+    margin-left: 0.8em;
+    color: #515151;
+}
+.bttom-border{
+    border-bottom: 1px solid rgba(200, 200, 100, 0.1);
+}
+.up-btn{
+    height:12px;width:100%;background:#3d444c;text-align:center;
+
+}
+.up-btn .fas{color: #fff;font-size: 18px;background: #232c31;padding: 2px 8px 0 8px;line-height: 12px;vertical-align:top;display: inline-block;}
+.up-btn .fas:hover{color:#08c;cursor:pointer;}
+.stu-box{
+    width: 100%;
+    height: 0;
+    transition: 0.4s;
+    background: #3d444c;
+    margin-top: 0.1em;
+}
+.reset-btn{
+    cursor: pointer;
+    transition: 0.2s;
+    user-select:none;
+}
+.reset-btn:active{
+    font-weight: 700;
+}
+.font-size-18{
+    font-size: 18px!important;
+}
+.font-size-19{
+    font-size: 19px!important;
+}
+.font-size-24{
+    font-size: 24px!important;
+}
+.font-size-32{
+    font-size: 32px!important;
+}
+
+.OjInfo {
+    background: #f8f9fa;
+    padding: 10px;
+    border-radius: 6px;
+    overflow: hidden;
+    font-family: Full-Width-Quoration-Marks,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Helvetica,"PingFang SC","Hiragino Sans GB","Microsoft YaHei",SimSun,FontAwesome,sans-serif;
+}
+

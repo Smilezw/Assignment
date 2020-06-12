@@ -34,6 +34,7 @@ public class ServletLogin extends HttpServlet {
                 else if(ok == 1){
                     request.getSession().setAttribute("host", new User(username, password));
                     request.getSession().setAttribute("okk", true);
+                    System.out.println("login " + username);
                     response.sendRedirect("index");
                 } else {
                     request.getRequestDispatcher("login.jsp").forward(request,response);
